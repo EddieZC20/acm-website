@@ -201,15 +201,6 @@ function initParticles() {
 /* =============================================
    MEMBERS
    ============================================= */
-function buildMemberMiniCard(member) {
-  return `
-    <div class="member-mini">
-      <img class="member-avatar" src="${member.photo}" alt="${member.name}" loading="lazy" />
-      <div class="member-name">${member.name}</div>
-      <div class="member-role">${member.role}</div>
-    </div>
-  `;
-}
 
 function buildMemberCard(member) {
   return `
@@ -226,12 +217,6 @@ function buildMemberCard(member) {
 }
 
 function initMembers() {
-  // --- Marquee (infinite scroll) ---
-  const track = document.getElementById('marqueeTrack');
-  // Duplicate cards for seamless loop
-  const allMiniCards = [...MEMBERS, ...MEMBERS].map(buildMemberMiniCard).join('');
-  track.innerHTML = allMiniCards;
-
   // --- Full grid ---
   const grid = document.querySelector('.members-grid');
   grid.innerHTML = MEMBERS.map(buildMemberCard).join('');

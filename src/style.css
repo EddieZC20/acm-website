@@ -445,61 +445,14 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .pillar-icon { font-size: 1.1rem; }
 
 /* =============================================
-   MEMBERS — INFINITE MARQUEE
+   MEMBERS
    ============================================= */
-.marquee-wrapper {
-  overflow: hidden;
-  width: 100%;
-  padding: 24px 0;
-  margin-bottom: 48px;
-  -webkit-mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
-  mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
-}
-.marquee-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;
-  animation: scrollMarquee 35s linear infinite;
-}
-.marquee-track:hover { animation-play-state: paused; }
-@keyframes scrollMarquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 
-/* Member card (marquee) */
-.member-mini {
-  flex-shrink: 0;
-  width: 160px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-lg);
-  padding: 20px 16px;
-  text-align: center;
-  transition: border-color 0.3s, transform 0.3s var(--ease);
-}
-.member-mini:hover {
-  border-color: rgba(92, 164, 220, 0.4);
-  transform: translateY(-4px);
-}
-.member-avatar {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  margin: 0 auto 12px;
-  object-fit: cover;
-  border: 2px solid var(--glass-border);
-  transition: border-color 0.3s;
-}
-.member-mini:hover .member-avatar { border-color: var(--primary); }
-.member-mini .member-name { font-size: 0.82rem; font-weight: 600; color: var(--white); margin-bottom: 4px; }
-.member-mini .member-role { font-size: 0.72rem; color: var(--primary); }
-
-/* Member grid (full below) */
+/* Member grid */
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  /* ~260px permite 4 tarjetas por fila en un contenedor de 1200px */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
 }
 .member-card {
@@ -508,37 +461,37 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
-  padding: 28px 20px;
+  padding: 36px 26px; /* +30% */
   text-align: center;
   transition: transform 0.35s var(--ease), border-color 0.3s, box-shadow 0.35s;
 }
 .member-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: rgba(92, 164, 220, 0.4);
-  box-shadow: 0 20px 50px rgba(92, 164, 220, 0.08);
+  box-shadow: 0 24px 60px rgba(92, 164, 220, 0.1);
 }
 .member-card .member-avatar {
-  width: 90px; height: 90px;
-  margin-bottom: 16px;
+  width: 120px; height: 120px; /* +30% */
+  margin-bottom: 20px;
 }
 .member-card .member-name {
   font-family: var(--font-head);
-  font-size: 1rem;
+  font-size: 1.3rem; /* +30% */
   font-weight: 600;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .member-card .member-role {
-  font-size: 0.8rem;
+  font-size: 1rem; /* +30% */
   color: var(--primary);
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
-.member-links { display: flex; justify-content: center; gap: 10px; }
+.member-links { display: flex; justify-content: center; gap: 14px; }
 .member-link {
-  font-size: 0.72rem;
+  font-size: 0.9rem; /* +30% */
   color: var(--muted);
   border: 1px solid var(--glass-border);
-  padding: 4px 10px;
+  padding: 6px 14px;
   border-radius: 999px;
   transition: color 0.25s, border-color 0.25s;
 }
