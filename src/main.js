@@ -12,14 +12,14 @@ const MEMBERS = [
     role: 'Chair',
     photo: '/member_photos/valeria_varelas.jpg',
     github: '#',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/lidia-valeria-avila-varelas-9a5631303/',
   },
   {
-    name: 'Enrique Díaz',
+    name: 'Enrique Hernández',
     role: 'Vice Chair',
     photo: '/member_photos/enrique_hernandez.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/HdezAlpha20028',
+    linkedin: 'https://www.linkedin.com/in/enrique-hern%C3%A1ndez-romero-ba9b74383/',
   },
   {
     name: 'Erwin Daowz',
@@ -29,60 +29,60 @@ const MEMBERS = [
     linkedin: '#',
   },
   {
-    name: 'Danae Álvarez',
+    name: 'Danae Alvarez',
     role: 'Lead de Social Media',
     photo: '/member_photos/danae_alvarez.jpg',
     github: '#',
-    linkedin: '#',
+    linkedin: 'https://mx.linkedin.com/in/danae-alvarez-297145285',
   },
   {
     name: 'Diego Paz',
     role: 'Co-Lead de Social Media',
     photo: '/member_photos/diego_paz.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/DieGOAzael',
+    linkedin: 'https://www.linkedin.com/in/diego-azael-pérez-paz-7894533ab',
   },
   {
     name: 'Isaac Gámez',
     role: 'Social Media',
     photo: '/member_photos/isaac_gamez.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/Qbiit',
+    linkedin: 'https://www.linkedin.com/in/isaacgamezg/',
   },
   {
     name: 'Eddie Zapata',
     role: 'Software Developer',
     photo: '/member_photos/eddie_zapata.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/EddieZC20',
+    linkedin: 'https://www.linkedin.com/in/eddie-zapata-b31748340/',
   },
   {
     name: 'America Montaño',
     role: 'Member',
     photo: '/member_photos/america_montaño.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/caitmeri',
+    linkedin: 'https://www.linkedin.com/in/montaño-mata-america-itzel-a128982b2',
   },
   {
     name: 'Joseph Romero',
     role: 'Social Media',
     photo: '/member_photos/joseph_romero.jpg',
     github: '#',
-    linkedin: '#',
+    linkedin: 'https://www.linkedin.com/in/joseph-romero-tapia-09883a258',
   },
   {
     name: 'Jesús Cerecedo',
     role: 'Member',
     photo: '/member_photos/jesus_cerecedo.jpg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/JesusCCGG',
+    linkedin: 'https://www.linkedin.com/in/jesus-cerecedo',
   },
   {
     name: 'Emiliano Flores',
     role: 'Software Developer',
     photo: '/member_photos/emiliano_flores.jpeg',
-    github: '#',
-    linkedin: '#',
+    github: 'https://github.com/jemilianofl',
+    linkedin: 'https://www.linkedin.com/in/jemiliano-flores/',
   },
   {
     name: 'Dr. Miguel Félix',
@@ -198,15 +198,22 @@ function initParticles() {
    ============================================= */
 
 function buildMemberCard(member) {
+  const githubLink = member.github && member.github !== '#'
+    ? `<a class="member-link" href="${member.github}" target="_blank" rel="noopener">GitHub</a>`
+    : '';
+  const linkedinLink = member.linkedin && member.linkedin !== '#'
+    ? `<a class="member-link" href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>`
+    : '';
+  const linksHtml = (githubLink || linkedinLink)
+    ? `<div class="member-links">${githubLink}${linkedinLink}</div>`
+    : '';
+
   return `
     <div class="member-card" data-animate>
       <img class="member-avatar" src="${member.photo}" alt="${member.name}" loading="lazy" />
       <div class="member-name">${member.name}</div>
       <div class="member-role">${member.role}</div>
-      <div class="member-links">
-        <a class="member-link" href="${member.github}" target="_blank" rel="noopener">GitHub</a>
-        <a class="member-link" href="${member.linkedin}" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
+      ${linksHtml}
     </div>
   `;
 }
